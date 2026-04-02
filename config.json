@@ -1,0 +1,49 @@
+{
+  "environment": {
+    "conda_env": "pytorch_latest",
+    "pytorch_version": "2.6.0+cu124",
+    "cuda_version": "12.4",
+    "gpu_name": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+    "gpu_memory_gb": 4.0,
+    "cuda_available": true,
+    "recommended_batch_size": 8
+  },
+  "data": {
+    "raw_data_dir": "..\\..\\DataKaggle\\histopathologic-cancer-detection-gpu",
+    "processed_data_dir": "data",
+    "image_size": 96
+  },
+  "model": {
+    "dim": 64,
+    "dim_mults": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "channels": 3,
+    "flash_attn": true
+  },
+  "training": {
+    "batch_size": 8,
+    "learning_rate": 8e-05,
+    "train_steps": 10000,
+    "gradient_accumulate_every": 4,
+    "ema_decay": 0.995,
+    "amp": true,
+    "num_workers": 2
+  },
+  "diffusion": {
+    "timesteps": 1000,
+    "sampling_timesteps": 250
+  },
+  "generation": {
+    "num_images": 16,
+    "batch_size": 4
+  },
+  "paths": {
+    "results_dir": "results",
+    "models_dir": "models",
+    "generated_dir": "generated"
+  }
+}
